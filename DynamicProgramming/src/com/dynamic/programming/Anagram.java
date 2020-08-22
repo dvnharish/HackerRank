@@ -1,18 +1,12 @@
 package com.dynamic.programming;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Anagram {
 	public static void main(String[] args) {
 
-		String s1 = "hello";
-		String s2 = "billion";
-
+		String s1 = "listening";
+		String s2 = "silent";
 		int[] charArray1 = getCharCount(s1);
 		int[] charArray2 = getCharCount(s2);
-
 		int countOfSameElemetns = getDelta(charArray1, charArray2);
 		System.out.println(countOfSameElemetns);
 
@@ -21,12 +15,12 @@ public class Anagram {
 	private static int getDelta(int[] charArray1, int[] charArray2) {
 		if (charArray1.length != charArray2.length)
 			return -1;
-		int delta = 0;
+		int elementsCount = 0;
 		for (int i = 0; i < charArray1.length; i++) {
 			int diff = Math.abs(charArray1[i] - charArray2[i]);
-			delta += diff;
+			elementsCount += diff;
 		}
-		return delta;
+		return elementsCount;
 	}
 
 	private static int[] getCharCount(String s) {
